@@ -1,17 +1,149 @@
 <div class="page">
-    <p>{{ thread.content }}</p>
-    <p>by {{ thread.author }} at {{ thread.createdAt | date }}</p>
-    
-    <ul>
-        <li ng-repeat="post in posts">
+
+    <div class="w3-top">
+     <ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
+
+       <li><a href="javascript:void(0);" onclick="openNav()" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Discussion Board</a></li>
+
+      <!-- <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a></li>
+      <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a></li>
+      <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a></li>
+      <li class="w3-hide-small w3-dropdown-hover">
+        <a href="#" class="w3-padding-large w3-hover-white" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></a>
+        <div class="w3-dropdown-content w3-white w3-card-4">
+          <a href="#">One new friend request</a>
+          <a href="#">John Doe posted on your wall</a>
+          <a href="#">Jane likes your post</a>
+        </div>
+      </li>
+      <li class="w3-hide-small w3-right"><a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a></li> -->
+     </ul>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
+      <ul class="w3-navbar w3-left-align w3-large w3-theme">
+        <li><a class="w3-padding-large" href="#">Link 1</a></li>
+        <li><a class="w3-padding-large" href="#">Link 2</a></li>
+        <li><a class="w3-padding-large" href="#">Link 3</a></li>
+        <li><a class="w3-padding-large" href="#">My Profile</a></li>
+      </ul>
+    </div>
+
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+      <!-- The Grid -->
+      <div class="w3-row">
+        <!-- Left Column -->
+        <div class="w3-col m3">
+          <!-- Profile -->
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container">
+             <h4 class="w3-center">Discussion Created By</h4>
+             <p class="w3-center"><img src="{{ thread.picSrc }}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+             <hr>
+             <p><i class="w3-margin-right w3-text-theme">Name</i> <login-buttons></login-buttons> </p>
+             <p><i class="w3-margin-right w3-text-theme">Gender</i> {{ thread.authorGender }}</p>
+             <p><i class="w3-margin-right w3-text-theme">Email</i> {{ thread.authorEmail }}</p>
+             <!--<p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{ thread.authorGender }}</p>
+             <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{ thread.authorGender }}</p> -->
+
+             <!-- <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{ thread.authorGender }}</p>
+             <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>{{ thread. }}</p>
+             <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{ thread. }}</p> -->
+            </div>
+          </div>
+          <br>
+
+
+          <br>
+
+
+          <br>
+
+        </div>
+
+        <!-- Middle Column -->
+        <div class="w3-col m7">
+
+          <div class="w3-row-padding">
+            <div class="w3-col m12">
+              <div class="w3-card-2 w3-round w3-white">
+                <div class="w3-container w3-padding">
+                  <!-- <h6 class="w3-opacity">Discussion</h6> -->
+                  <p class="threadheader">{{ thread.header }}</p>
+                  <p class="threadcontent">{{ thread.content }}</p>
+                  <p class="threadauthor">created by {{ thread.author }} at {{ thread.createdAt | date }}</p>
+
+                  <!-- <form ng-submit="createPost(post)" class="comment-form">
+                      <input class="input-box comment-box" type="text" placeholder="Write a comment..." ng-model="post.content">
+                      <button class="btn-submit btn-comment" type="submit">Comment</button>
+                  </form> -->
+                  <hr class="w3-clear">
+                  <form ng-submit="createPost(post)" class="comment-form">
+                      <input class="some-box" type="text" placeholder="Write a comment..." ng-model="post.content">
+                      <button type="submit" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> Comment</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+           <div class="w3-container w3-card-2 w3-white w3-round w3-margin" ng-repeat="post in posts"><br>
+            <img src="{{ post.picSrc }}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
             <p ng-bind="post.content"></p>
-            by {{ post.author }} at {{ post.createdAt | date }}
-        </li>
-    </ul>
-    
-    <h2>Reply</h2>
-    <form ng-submit="createPost(post)">
-        <input type="text" placeholder="Write your reply..." ng-model="post.content">
-        <button type="submit">Post</button>
-    </form>
+
+            <span class="w3-right w3-opacity">commented by {{ post.author }} at {{ post.createdAt | date }}</span>
+            <!-- <h4><a ui-sref="thread({threadId: thread._id})">{{ thread.header }}</a></h4><br> -->
+
+
+          </div>
+
+        </div>
+
+
+        <div class="w3-col m2">
+
+          <br>
+
+          <br>
+          <br>
+
+        </div>
+
+      <!-- End Grid -->
+      </div>
+
+    <!-- End Page Container -->
+    </div>
+    <br>
+<!--
+    <footer class="w3-container w3-theme-d5">
+      <p>Copyrights <a href="https://benimadhab11.github.io" target="_blank">Beni Madhab Kayal</a></p>
+    </footer> -->
+
+    <script>
+    // Accordion
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className =
+            x.previousElementSibling.className.replace(" w3-theme-d1", "");
+        }
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+      console.log("go back !!");
+      window.location.href = '/#/topic/SKaKf7vefrBw8e7s9';
+      window.location.reload();
+    }
+    </script>
+
 </div>

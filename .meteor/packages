@@ -20,3 +20,6 @@ accounts-password
 angularui:angular-ui-router
 check
 dotansimha:accounts-ui-angular
+accounts-facebook
+service-configuration
+urigo:angular-ui-router

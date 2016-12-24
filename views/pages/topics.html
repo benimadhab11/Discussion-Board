@@ -1,6 +1,95 @@
 <div class="page">
-    <h1>Topics</h1>
-    <div ng-repeat="topic in topics">
-        <a ui-sref="topic({topicId: topic._id})">{{ topic.name }}</a>
+  
+    <div class="w3-top">
+     <ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
+      <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+        <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+      </li>
+      <li><a href="#" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Discussion Board</a></li>
+       </ul>
     </div>
+
+
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+      <!-- The Grid -->
+      <div class="w3-row">
+        <!-- Left Column -->
+        <div class="w3-col m3">
+
+          <br>
+
+          <br>
+
+          <br>
+
+
+        <!-- End Left Column -->
+        </div>
+
+        <!-- Middle Column -->
+        <div class="w3-col m7">
+
+          <div class="w3-row-padding">
+            <div class="w3-col m12">
+
+                    <div class="w3-card-2 w3-round w3-white">
+                      <div class="w3-container">
+                       <h4 style="height:300px" class="w3-center"><login-buttons></login-buttons></h4>
+
+                       <div ng-repeat="topic in topics|limitTo:1">
+                           <a ui-sref="topic({topicId: topic._id})">{{ topic.name }}</a>
+                       </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column -->
+
+        <div class="w3-col m2">
+
+          <br>
+
+          <br>
+
+          <br>
+
+        </div>
+
+      <!-- End Grid -->
+      </div>
+
+    <!-- End Page Container -->
+    </div>
+    <br>
+
+
+    <script>
+    // Accordion
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className =
+            x.previousElementSibling.className.replace(" w3-theme-d1", "");
+        }
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+    </script>
 </div>

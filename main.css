@@ -1,0 +1,189 @@
+/* CSS declarations go here */
+html, body{
+	height:100%;
+}
+html{
+	overflow-y: scroll;
+}
+body {
+	font-size: 16px;
+	font-family: Helvetica, sans-serif;
+	background-color: #f3f5f7;
+
+}
+.threadheader {
+	 color: #F90B6D; font-family: 'Open Sans', sans-serif; font-size: 28px; font-weight: 300; line-height: 32px; margin: 0 0 14px;
+ }
+ .threadcontent{
+	 color: #222; font-family: 'Open Sans', sans-serif; font-size: 20px; font-weight: 400; line-height: 24px; margin: 0 0 14px;
+ }
+ .threadauthor {
+	  font-style: italic; color: #B6B6B6; font-size: 15px; margin-top: 20px; text-align: right; text-shadow: 0 1px 1px #fff;
+	}
+
+.forum{
+	overflow: hidden;
+}
+.some-box{
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 10px;
+	margin: 10px 0 30px;
+	font-size: 1em;
+	font-weight: 300;
+	width: 81%;
+	box-sizing: border-box;
+	color: #444;
+}
+
+.card-wrapper {
+	background-color: #fff;
+	width: 31.7%;
+	margin: 70px auto;
+	box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+	padding: 30px;
+}
+.discussion-wrapper {
+	margin-top: 90px;
+}
+.comment-wrapper {
+		background-color: #f7f7f7;
+    padding: 12px;
+    color: #444;
+    font-weight: 400;
+    border-left: 2px solid #ddd;
+    font-style: italic;
+    margin-bottom: 12px;
+    font-size: 1em;
+}
+
+.comment-author {
+	font-style: normal;
+	font-size: .85em;
+	color: #50a4e2;
+	margin-top: 10px;
+}
+.align-right {
+	text-align: right;
+}
+
+
+.main-header {
+		height:7%;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0 0 5 0;
+		position: fixed;
+		top:0;
+		left:0
+}
+.head{
+	text-align:center;
+	margin-left: 7%;
+	color:white;
+	width: 87%;
+	float:left
+}
+
+.input-box {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 10px;
+	margin: 10px 0 30px;
+
+}
+/* Common UI elements */
+
+
+
+/* Login interface styles */
+.input-box,
+.input-label {
+	font-size: 1em;
+	font-weight: 300;
+	width: 100%;
+	box-sizing: border-box;
+	color: #444;
+}
+
+.btn-submit {
+	display: block;
+	width: 30%;
+	margin: 10px auto 0;
+	background-color: #50a4e2;
+	color: #fff;
+	font-size: 1em;
+	font-weight: 300;
+	border: none;
+	padding: 12px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+.btn-submit:hover {
+	background-color: #00a0e3;
+}
+
+.input-box:focus {
+	outline: none;
+	box-shadow: 0px 0px 2px #00a0e3;
+	border: 1px solid #50a4e2;
+}
+
+.comment-box {
+	resize: none;
+	height: 80px;
+	margin-bottom: 10px
+}
+.header-box{
+	resize: none;
+	height: 40px;
+	margin-bottom: 10px
+}
+.btn-comment {
+	margin-bottom: 40px;
+}
+
+.btn-logout {
+	width: auto;
+    position: fixed;
+    right: 4%;
+    top: 4%;
+    padding: 12px 30px;
+}
+
+/* Comment list interface styles */
+
+
+
+/* Responsive styles */
+@media screen and (max-width: 480px) {
+	.card-wrapper {
+		width: 80%;
+		padding: 20px;
+	}
+
+	.login-wrapper {
+		margin-top: 20px;
+	}
+
+	.btn-submit {
+		width: 70%;
+	}
+
+	.btn-logout {
+		width: auto;
+	}
+
+	.btn-logout {
+		position: absolute;
+	}
+
+	.main-header {
+		font-size: 1.35em;
+		margin-bottom: 20px;
+		line-height: 1.2em;
+	}
+}
+/* Responsive styles */
