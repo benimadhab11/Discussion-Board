@@ -78,14 +78,6 @@ angular.module('forum', ['angular-meteor', 'ui.router', 'accounts.ui','satellize
             },
             threads: function() {
               return Threads.find({topicId: $stateParams.topicId});
-            },
-            postsnew : function(){
-              var id = Threads.find({topicId: $stateParams.topicId}).fetch()[0];
-              if(typeof id != 'undefined'){
-              console.log(id._id);
-              console.log(Posts.find({_id: "pZ9b4vT3NxvooNzCa"}));
-            }
-            return Posts.find({_id: "pZ9b4vT3NxvooNzCa"});
             }
         });
         $scope.createThread = function(thread){
