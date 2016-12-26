@@ -73,6 +73,7 @@
                   <!-- <h6 class="w3-opacity">Discussion</h6> -->
                   <p class="threadheader">{{ thread.header }}</p>
                   <p class="threadcontent">{{ thread.content }}</p>
+                  <p class="threadcommentcount">{{ postsCount }}</p>
                   <p class="threadauthor">created by {{ thread.author }} at {{ thread.createdAt | date }}</p>
 
                   <!-- <form ng-submit="createPost(post)" class="comment-form">
@@ -140,9 +141,10 @@
 
     // Used to toggle the menu on smaller screens when clicking on the menu button
     function openNav() {
-      console.log("go back !!");
-      window.location.href = '/#/topic/SKaKf7vefrBw8e7s9';
-      window.location.reload();
+       console.log("go back !!");
+       window.location.href = document.referrer;
+      // window.location.href = '/topic';
+      //
     }
     </script>
 

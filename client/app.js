@@ -66,15 +66,26 @@ angular.module('forum', ['angular-meteor', 'ui.router', 'accounts.ui','satellize
     .controller('TopicContoller', function($scope, $stateParams, $meteor){
       $scope.$on('$viewContentLoaded', function(){
         console.log("List of discussions");
+
       });
         $scope.subscribe('topic', function(){ return [$stateParams.topicId]; });
         $scope.subscribe('threads', function(){ return [$stateParams.topicId]; });
+
+
         $scope.helpers({
             topic: function() {
                 return Topics.findOne({_id: $stateParams.topicId});
             },
             threads: function() {
-                return Threads.find({topicId: $stateParams.topicId});
+              return Threads.find({topicId: $stateParams.topicId});
+            },
+            postsnew : function(){
+              var id = Threads.find({topicId: $stateParams.topicId}).fetch()[0];
+              if(typeof id != 'undefined'){
+              console.log(id._id);
+              console.log(Posts.find({_id: "pZ9b4vT3NxvooNzCa"}));
+            }
+            return Posts.find({_id: "pZ9b4vT3NxvooNzCa"});
             }
         });
         $scope.createThread = function(thread){
@@ -86,6 +97,7 @@ angular.module('forum', ['angular-meteor', 'ui.router', 'accounts.ui','satellize
                 alert("An error occured while creating the thread!");
             });
         };
+
     })
     .controller('ThreadContoller', function($scope, $stateParams, $meteor){
         $scope.subscribe('thread', function(){ return [$stateParams.threadId]; });
@@ -96,16 +108,12 @@ angular.module('forum', ['angular-meteor', 'ui.router', 'accounts.ui','satellize
             },
             posts: function() {
                 return Posts.find({threadId: $stateParams.threadId});
+            },
+            postsCount : function(){
+              return Posts.find({threadId: $stateParams.threadId}).count();
             }
         });
         $scope.createPost = function(post){
-            $meteor.call("profilePic", function(error, result) {
-              if (err)
-                 console.log(err);
-              Session.set('q', result);
-            });
-            console.log(Session.get('q'));
-
             $meteor.call("createPost", $stateParams.threadId, post.content).then(function(){
                 post.content = '';
             }).catch(function(){

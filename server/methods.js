@@ -1,10 +1,6 @@
 Meteor.methods({
-    //  get_users_by_email: function (emailE) {
-    //      return Meteor.users.find({ emails: { $elemMatch: { address: emailE } } }).fetch();
-    // },
-    profilePic : function(){
-      return "hello";
-    },
+  
+
     createThread: function(topicId, header, content){
         check(topicId, String);
         check(header, String);

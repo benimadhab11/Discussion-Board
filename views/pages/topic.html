@@ -64,8 +64,12 @@
             <img src="{{ thread.picSrc }}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
             <span class="w3-right w3-opacity">by {{ thread.author }} at {{ thread.createdAt | date }}</span>
             <h4><a ui-sref="thread({threadId: thread._id})">{{ thread.header }}</a></h4><br>
+
             <hr class="w3-clear">
             <p>{{ thread.content }}</p>
+            <h4><a ui-sref="postsCount(thread)">{{ postsCount }}</a></h4><br>
+
+
 <!--
             <form ng-submit="createPost(post)" class="comment-form">
                 <input class="some-box" type="text" placeholder="Write a comment..." ng-model="post.content">
@@ -121,6 +125,7 @@
     </footer> -->
 
     <script>
+
     // Accordion
     function myFunction(id) {
         var x = document.getElementById(id);
